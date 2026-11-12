@@ -1,0 +1,23 @@
+monitor:
+  interval_seconds: 1.0
+  history_window: 5
+  cpu_sustain_samples: 5
+  cpu_warning: 75
+  cpu_critical: 95
+  cpu_recovery_percent: 60
+  recovery_window_seconds: 3
+  unused_user_idle_seconds: 60
+  memory_warning_mb: 512
+  memory_critical_mb: 1024
+  memory_growth_warning_mb: 100
+  hang_seconds: 20
+  recovery_cooldown_seconds: 8
+policy:
+  warning: [throttle]
+  critical: [throttle, restart, terminate]
+  restart_limit: 2
+  terminate_requires_explicit_opt_in: true
+  protected_process_names: [launchd, kernel_task, windowserver, loginwindow, systemd, init, explorer.exe, csrss.exe, wininit.exe, services.exe, system]
+resource_limits:
+  cpu_seconds: null
+  memory_mb: null
